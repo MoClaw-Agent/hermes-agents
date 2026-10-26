@@ -55,4 +55,4 @@ Use `AUD-NNNN_` prefix only when tracking the same audit across multiple runs or
 2. Use the naming convention above.
 3. Increment version if a prior audit of the same subject exists.
 4. Never overwrite — create a new versioned file.
-5. Update `doc/audits/_INDEX.md` if it exists.
+5. Update `doc/audit/general/_INDEX.md` if it exists.
