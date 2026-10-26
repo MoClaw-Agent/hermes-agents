@@ -36,5 +36,5 @@ aidlc/spaces/<space>/intents/<slug>/
 - Document work done and open items as the intent file evolves.
 
 ## Notes
-- AI-DLC is the upstream framework (`github.com/MoClaw-Agent/aidlc-workflows`).
+- AI-DLC is the upstream framework (`github.com/MoClaw-Agent/aidlc-workflows` (/home/mohammed/Proj/ai-dlc/aidlc-workflows)).
 - This skill makes the workflow repeatable for any repo, not Mizan-specific.

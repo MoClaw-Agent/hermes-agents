@@ -200,7 +200,8 @@ plugins:
 ai_dlc:
   enabled: true
   framework: aidlc-workflows
-  workspace: /home/mohammed/.hermes/profiles/default/aidlc-workspace
+  # Path to the AI-DLC workflows framework (moved from /home/mohammed/aidlc-workflows)
+  framework_path: /home/mohammed/Proj/ai-dlc/aidlc-workflows
   default_scope: default
   max_iterations: 250
   agents:

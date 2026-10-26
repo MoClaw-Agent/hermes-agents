@@ -26,6 +26,7 @@ When a task involves several distinct specialist steps or heavy iteration:
 - Keep per-stage model usage bounded; reuse context rather than re-summarizing.
 - Prefer the AI-DLC workflow (aidlc-workflows) for long, iterative, high-turn tasks:
   - workspace: aidlc/spaces/<space>/intents/<slug>/
+  - framework: `/home/mohammed/Proj/ai-dlc/aidlc-workflows`
   - lead coordinates review/develop/reverse-engineer stages
 - Each agent knows nothing of this conversation: pass everything needed via context.
 
