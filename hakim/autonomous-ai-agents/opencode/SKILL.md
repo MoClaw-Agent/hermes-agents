@@ -211,6 +211,12 @@ Success criteria:
 
 ## Rules
 
+0. Before running, confirm four parameters with the user (ask if any is missing):
+   1. Model + variant as `Model:variant` (variant: default/low/high/max, e.g. `GLM-5.3-Flash Free:high`).
+   2. Working path.
+   3. Command or task.
+   4. Agent: `plan` or `build`.
+   Then invoke `~/.opencode/bin/opencode` with `--model`, `--variant`, `--agent`, and the working path.
 1. Prefer `opencode run` for one-shot automation — it's simpler and doesn't need pty.
 2. Use interactive background mode only when iteration is needed.
 3. Always scope OpenCode sessions to a single repo/workdir.
