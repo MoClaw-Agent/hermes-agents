@@ -1,0 +1,9 @@
+{
+  "last_report_path": "/home/mohammed/.hermes/profiles/hakim/logs/curator/20261025-003037",
+  "last_run_at": "2026-10-25T00:30:37.615555+00:00",
+  "last_run_duration_seconds": 0.60146,
+  "last_run_summary": "auto: 1 reactivated; llm: skipped (consolidation off)",
+  "last_run_summary_shown_at": "2026-10-25T00:30:37.615555+00:00",
+  "paused": false,
+  "run_count": 9
+}
