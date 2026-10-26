@@ -106,6 +106,7 @@ Profiles use `~/.hermes/profiles/<name>/` with the same layout. When a profile i
 | Windows-specific issues (keybinds, WinError 10106, BOM) | `references/windows-quirks.md` |
 | Debugging: voice, tools missing, gateway, aux models | `references/troubleshooting.md` |
 | Recovering lost sessions / salvaging state.db from a backup | `references/state-db-recovery.md` |
+| Multi-profile skill sharing (one repo, per-profile subfolders, symlinks) | `references/multi-profile-skill-sharing.md` |
 | Writing or debugging a plugin (tools/hooks not appearing, inert after install, gate/switch disagreeing, hook not firing, calling an LLM from a plugin via `ctx.llm`) | `references/plugin-authoring.md` |
 | A dashboard tab/panel for a plugin — or a tab that renders **blank** (`dashboard/manifest.json`, `register()`, `plugin_api.py`) | `references/dashboard-plugins.md` |
 | Hermes Memory plugin — architecture, config, retention, entity extraction, install/verify | `references/hermes-memory-plugin.md` |
