@@ -12,7 +12,7 @@ metadata:
 
 # AI-DLC Agents (Hermes adaptation)
 
-The 14 AI-DLC specialist personas, adapted for Hermes. Each persona's full knowledge lives in `/home/mohammed/aidlc-workflows/core/knowledge/aidlc-<name>/`. Dispatch a persona with `delegate_task`, passing the persona files as context.
+The 14 AI-DLC specialist personas, adapted for Hermes. Each persona's full knowledge lives in `/home/mohammed/Proj/ai-dlc/aidlc-workflows/core/knowledge/aidlc-<name>/`. Dispatch a persona with `delegate_task`, passing the persona files as context.
 
 ## Roster
 
@@ -40,7 +40,7 @@ Shared knowledge: `core/knowledge/aidlc-shared/` (principles, brownfield, verifi
 ```
 delegate_task(
   goal="<the specialist task>",
-  context="You are the <agent-name> persona. Read and follow the persona files at /home/mohammed/aidlc-workflows/core/knowledge/aidlc-<name>/ and shared knowledge at /home/mohammed/aidlc-workflows/core/knowledge/aidlc-shared/. <task-specific context>. Report findings; do not modify files unless asked.",
+  context="You are the <agent-name> persona. Read and follow the persona files at /home/mohammed/Proj/ai-dlc/aidlc-workflows/core/knowledge/aidlc-<name>/ and shared knowledge at /home/mohammed/Proj/ai-dlc/aidlc-workflows/core/knowledge/aidlc-shared/. <task-specific context>. Report findings; do not modify files unless asked.",
   toolsets=["terminal", "file", "search"],
   role="leaf"
 )

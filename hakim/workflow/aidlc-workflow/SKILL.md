@@ -12,7 +12,7 @@ metadata:
 
 # AI-DLC Workflow (Hermes adaptation)
 
-Adapted from `MoClaw-Agent/aidlc-workflows` (cloned at `/home/mohammed/aidlc-workflows`). The original is an engine-driven, multi-harness framework; this adaptation keeps the **methodology** (phases, stages, conductor discipline, approval gates) and runs it with native Hermes tools. The TypeScript engine (`core/tools/aidlc-*`) is not ported — Hermes has no Bun runtime and no package build here — so routing is performed by the agent following this skill instead of by `engine orchestrate next`.
+Adapted from `MoClaw-Agent/aidlc-workflows` (cloned at `/home/mohammed/Proj/ai-dlc/aidlc-workflows`). The original is an engine-driven, multi-harness framework; this adaptation keeps the **methodology** (phases, stages, conductor discipline, approval gates) and runs it with native Hermes tools. The TypeScript engine (`core/tools/aidlc-*`) is not ported — Hermes has no Bun runtime and no package build here — so routing is performed by the agent following this skill instead of by `engine orchestrate next`.
 
 ## When to use
 
@@ -73,14 +73,14 @@ Follow `core/aidlc-common/protocols/stage-protocol.md` "Talking to the user" sec
 
 ## Reference locations (cloned repo)
 
-- Root: `/home/mohammed/aidlc-workflows`
-- AGENTS.md (full methodology): `/home/mohammed/aidlc-workflows/AGENTS.md`
-- Conductor: `/home/mohammed/aidlc-workflows/core/aidlc-common/conductor.md`
-- Stages: `/home/mohammed/aidlc-workflows/core/aidlc-common/stages/`
-- Protocols: `/home/mohammed/aidlc-workflows/core/aidlc-common/protocols/`
-- Agents/personas: `/home/mohammed/aidlc-workflows/core/knowledge/`
-- Templates: `/home/mohammed/aidlc-workflows/core/templates/`
-- Scopes: `/home/mohammed/aidlc-workflows/core/scopes/`
+- Root: `/home/mohammed/Proj/ai-dlc/aidlc-workflows`
+- AGENTS.md (full methodology): `/home/mohammed/Proj/ai-dlc/aidlc-workflows/AGENTS.md`
+- Conductor: `/home/mohammed/Proj/ai-dlc/aidlc-workflows/core/aidlc-common/conductor.md`
+- Stages: `/home/mohammed/Proj/ai-dlc/aidlc-workflows/core/aidlc-common/stages/`
+- Protocols: `/home/mohammed/Proj/ai-dlc/aidlc-workflows/core/aidlc-common/protocols/`
+- Agents/personas: `/home/mohammed/Proj/ai-dlc/aidlc-workflows/core/knowledge/`
+- Templates: `/home/mohammed/Proj/ai-dlc/aidlc-workflows/core/templates/`
+- Scopes: `/home/mohammed/Proj/ai-dlc/aidlc-workflows/core/scopes/`
 
 ## Limitations of this adaptation
 
