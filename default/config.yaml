@@ -1,0 +1,251 @@
+# Faris (فارس) — general-purpose agent configuration
+# Adapted from the AI-DLC workflow / aidlc-workflows harness pattern.
+
+model:
+  default: upstage/solar-mini4:free
+  provider: nous
+  base_url: https://inference-api.nousresearch.com/v1
+
+database:
+  journal_mode: wal
+
+runtime:
+  nofile_soft_limit: 4096
+  container:
+    cpu: 1
+    memory: 5120
+    disk: 51200
+    persistent: true
+
+agent:
+  max_turns: 150
+  verbose: false
+  reasoning_effort: high
+
+terminal:
+  backend: local
+  cwd: .
+  timeout: 180
+  home_mode: auto
+  container_cpu: 1
+  container_memory: 5120
+  container_disk: 51200
+  container_persistent: true
+
+browser:
+  backend: browser-use
+  inactivity_timeout: 120
+  extension_control:
+    enabled: false
+
+tool_loop_guardrails:
+  warnings_enabled: true
+  hard_stop_enabled: false
+  warn_after:
+    exact_failure: 2
+    same_tool_failure: 3
+    idempotent_no_progress: 2
+  hard_stop_after:
+    exact_failure: 5
+    same_tool_failure: 8
+    idempotent_no_progress: 5
+
+compression:
+  enabled: true
+  progress_notices: false
+  threshold: 0.5
+  target_ratio: 0.2
+  protect_last_n: 20
+  min_tail_user_messages: 1
+  max_attempts: 3
+  proactive_prune_tokens: 48000
+  proactive_prune_min_result_chars: 8000
+  proactive_prune_min_reclaim_tokens: 4096
+  protect_first_n: 3
+
+display:
+  compact: false
+  personality: technical
+  busy_input_mode: interrupt
+  bell_on_complete: false
+  show_reasoning: false
+  background_process_notifications: concise
+  streaming: true
+  skin: default
+  interim_assistant_messages: true
+  pet:
+    enabled: true
+    slug: jill-stingray
+    scale: 0.85
+  tool_progress: all
+  cleanup_progress: false
+  long_running_notifications: true
+  busy_ack_detail: true
+
+stt:
+  enabled: true
+  language: en
+  local:
+    model: base
+  openai:
+    model: whisper-1
+    language: ''
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  memory_char_limit: 2200
+  user_char_limit: 1375
+  nudge_interval: 10
+
+delegation:
+  max_iterations: 250
+  max_concurrent_workers: 8
+
+skills:
+  creation_nudge_interval: 15
+
+kanban:
+  review_dispatch: true
+
+code_execution:
+  timeout: 300
+  max_tool_calls: 50
+
+streaming:
+  enabled: false
+
+onboarding:
+  seen:
+    tool_progress_prompt: true
+    busy_input_prompt: true
+
+telemetry:
+  shared_metrics:
+    enabled: false
+    send: false
+    offer_version: 2
+
+updates:
+  pre_update_backup: false
+  backup_keep: 5
+  non_interactive_local_changes: stash
+
+session_reset:
+  mode: none
+  idle_minutes: 1440
+  at_hour: 4
+
+group_sessions_per_user: true
+
+platform_toolsets:
+  cli:
+    - a2a
+    - browser
+    - clarify
+    - code_execution
+    - computer_use
+    - connections
+    - cronjob
+    - delegation
+    - file
+    - image_gen
+    - memory
+    - session_search
+    - skills
+    - terminal
+    - todo
+    - tts
+    - vision
+    - web
+
+known_builtin_toolsets:
+  cli:
+    - browser
+    - clarify
+    - code_execution
+    - computer_use
+    - connections
+    - context_engine
+    - cronjob
+    - delegation
+    - file
+    - homeassistant
+    - image_gen
+    - memory
+    - session_search
+    - skills
+    - spotify
+    - stt
+    - terminal
+    - todo
+    - tts
+    - video
+    - video_gen
+    - vision
+    - web
+    - x_search
+    - yuanbao
+
+plugins:
+  enabled:
+    - hermes-dreaming
+    - hermes-memory
+    - superpowers
+
+# ── AI-DLC workflow (aidlc-workflows) ──────────────────────────────
+# Multi-agent orchestration: the AI-DLC harness dispatches a lead agent
+# with a scoped, top-down directive chain (plan -> implement -> review ->
+# verify). Model usage is per-stage, not per-run, to keep cost predictable.
+ai_dlc:
+  enabled: true
+  framework: aidlc-workflows
+  workspace: /home/mohammed/.hermes/profiles/default/aidlc-workspace
+  default_scope: default
+  max_iterations: 250
+  agents:
+    - lead
+    - reviewer
+    - architect
+    - engineer
+    - reverse_engineering
+  collaboration:
+    # turn collaborators on when a piece of work needs specialist reviews
+    on_demand: true
+  workflow:
+    # top-down directive chain per stage (plan -> implement -> review -> verify)
+    stages:
+      - plan
+      - implement
+      - review
+      - verify
+    # parallel support reviewers allowed per stage
+    lead_only_default: false
+    collaborators_on: enterprise
+
+security:
+  redact_secrets: true
+  tirith_enabled: true
+  tirith_path: "tirith"
+  tirith_timeout: 5
+  tirith_fail_open: true
+
+# ── Fallback Model ─────────────────────────────────────────────────
+fallback_model:
+  provider: openrouter
+  model: anthropic/claude-sonnet-4
+
+command_allowlist:
+  - script execution via -e/-c flag
+  - script execution via heredoc
+  - shell execution via heredoc
+
+approvals:
+  timeout: 500
+  mode: smart
+
+dashboard:
+  theme: ember
+  font: system-serif
+
+_config_version: 51
