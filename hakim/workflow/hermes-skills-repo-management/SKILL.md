@@ -41,6 +41,7 @@ Hermes reads skills through the symlink fine. Git operations happen in the paren
 - **Auto-wire duplicates.** When relocating a stray skill, check it doesn't duplicate an existing skill in the target category (e.g., `workflow/ai-dlc-workflow` vs `workflow/ai-dlc-workflow`). Compare content before committing.
 - **Deleting an old repo** needs the `delete_repo` scope. Run `gh auth refresh -h github.com -s delete_repo` (device flow — complete the browser step), then `gh repo delete <owner>/<repo> --yes`.
 - **Moving a clone:** update every reference to the old path (skill files, `config.yaml` `framework_path`, `AGENTS.md`). Search the whole home tree for the old path string before declaring done.
+- **Cron script paths.** The cron tool only accepts script paths relative to `~/.hermes/profiles/<profile>/scripts/` — absolute or `~/`-relative paths are rejected. If the real script lives elsewhere, create a small wrapper (`exec /path/to/real/script.sh`) in the profile's scripts dir and pass just the filename.
 - **Memory is bounded.** When adding a standing rule, batch-remove a stale entry in the same call to stay under the char limit.
 
 ## Commit/push workflow
